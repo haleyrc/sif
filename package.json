@@ -1,6 +1,6 @@
 {
     "name": "sif",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "description": "The Haley Lab component library.",
     "main": "dist/sif.js",
     "scripts": {
