@@ -1,0 +1,32 @@
+{
+    "name": "sif",
+    "version": "1.0.0",
+    "description": "The Haley Lab component library.",
+    "main": "dist/sif.js",
+    "scripts": {
+        "build": "webpack --mode production",
+        "storybook": "start-storybook -p 9001"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/haleyrc/sif.git"
+    },
+    "keywords": [
+        "react",
+        "shared",
+        "components"
+    ],
+    "author": "Ryan Haley",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/core": "^7.9.0",
+        "@babel/preset-env": "^7.9.0",
+        "@babel/preset-react": "^7.9.4",
+        "babel-loader": "^8.1.0",
+        "webpack": "^4.42.1",
+        "webpack-cli": "^3.3.11"
+    },
+    "dependencies": {
+        "react": "^16.13.1"
+    }
+}
