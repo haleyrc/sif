@@ -1,5 +1,5 @@
 {
-    "name": "sif",
+    "name": "@haleyrc/sif",
     "version": "0.0.1",
     "description": "The Haley Lab component library.",
     "main": "dist/sif.js",
@@ -9,7 +9,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/haleyrc/sif.git"
+        "url": "git://github.com/haleyrc/sif.git"
     },
     "keywords": [
         "react",
