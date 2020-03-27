@@ -16,6 +16,9 @@
         "shared",
         "components"
     ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
     "author": "Ryan Haley",
     "license": "MIT",
     "devDependencies": {
