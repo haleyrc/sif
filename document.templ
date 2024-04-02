@@ -1,0 +1,46 @@
+package sif
+
+import "github.com/haleyrc/sif/themes/standard"
+
+type Icons struct {
+	// 180x180
+	AppleTouch string
+
+	// 32x32
+	Favicon32 string
+
+	// 16x16
+	Favicon16 string
+}
+
+templ Document(title string, theme templ.Component, icons Icons, manifest string) {
+	<!DOCTYPE html>
+	<html lang="en-US">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title }</title>
+			<script src="https://cdn.tailwindcss.com"></script>
+			if theme != nil {
+				@theme
+			} else {
+				@standard.Theme()
+			}
+			if icons.AppleTouch != "" {
+				<link rel="apple-touch-icon" sizes="180x180" href={ icons.AppleTouch }/>
+			}
+			if icons.Favicon32 != "" {
+				<link rel="icon" type="image/png" sizes="32x32" href={ icons.Favicon32 }/>
+			}
+			if icons.Favicon16 != "" {
+				<link rel="icon" type="image/png" sizes="16x16" href={ icons.Favicon16 }/>
+			}
+			if manifest != "" {
+				<link rel="manifest" href={ manifest }/>
+			}
+		</head>
+		<body>
+			{ children... }
+		</body>
+	</html>
+}

@@ -1,0 +1,13 @@
+package pages
+
+import (
+	"github.com/haleyrc/sif/blog"
+	"github.com/haleyrc/sif/blog/internal/components"
+)
+
+templ PostsForYear(b blog.Blog, year string, posts []blog.Post) {
+	@components.Layout("Posts from "+year, b.Name, b.Author, b.Since, b.Metadata.Manifest, b.Menu.Links) {
+		<h1 class="text-xl font-bold pb-2">Posts from { year }</h1>
+		@components.PostList(posts)
+	}
+}

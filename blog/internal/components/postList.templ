@@ -1,0 +1,20 @@
+package components
+
+import "github.com/haleyrc/sif/blog"
+
+templ PostList(posts []blog.Post) {
+	<table>
+		<tbody>
+			for _, p := range posts {
+				<tr>
+					<td class="pr-4">{ p.Timestamp.Format("2006-01-02") }:</td>
+					<td>
+						<a class="hover:underline" href={ templ.URL("/posts/" + p.Slug) }>
+							{ p.Title }
+						</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}

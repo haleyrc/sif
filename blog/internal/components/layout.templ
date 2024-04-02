@@ -1,0 +1,67 @@
+package components
+
+import (
+	"fmt"
+	"time"
+
+	"github.com/haleyrc/sif"
+	"github.com/haleyrc/sif/blog"
+)
+
+templ Layout(title, name, author, since, manifest string, links []blog.Link) {
+	@sif.Document(fmt.Sprintf("%s - %s", title, name), nil, sif.Icons{}, manifest) {
+		<header class="border-b py-2">
+			<div class="px-4 sm:w-3/4 mx-auto flex justify-between align-center">
+				<div class="inline-flex items-center">
+					<img class="inline-block rounded-full" src="https://placebacon.net/40/40"/>
+					<a class="pl-2 text-xl font-bold" href="/">{ name }</a>
+				</div>
+				<nav class="hidden sm:flex sm:items-center">
+					for _, l := range links {
+						<a class="pl-2 hover:underline" href={ templ.URL(l.Path) }>
+							{ l.Text }
+						</a>
+					}
+				</nav>
+				<a class="sm:hidden" href="#bottom-nav">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+					</svg>
+				</a>
+			</div>
+		</header>
+		<main class="py-6">
+			<div class="px-4 sm:w-3/4 mx-auto">
+				{ children... }
+			</div>
+		</main>
+		<footer class="border-t pb-2 sm:py-2">
+			<nav id="bottom-nav" class="flex flex-col pb-2 sm:hidden">
+				<a class="border-b py-2 hover:bg-gray-100 text-center" href="/">
+					home
+				</a>
+				for _, l := range links {
+					<a class="border-b py-2 hover:bg-gray-100 text-center" href={ templ.URL(l.Path) }>
+						{ l.Text }
+					</a>
+				}
+				<a class="border-b py-2 hover:bg-gray-100 text-center" href="#">
+					top
+				</a>
+			</nav>
+			<div class="px-4 sm:w-3/4 mx-auto flex flex-col items-center sm:flex-row justify-between">
+				<div class="font-extralight text-gray-500">
+					© { since }-{ fmt.Sprintf("%d", time.Now().Year()) } { author }
+				</div>
+				<div class="hidden sm:block">
+					<a class="inline-flex items-center gap-1 hover:underline" href="#">
+						Back to top
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+							<path fill-rule="evenodd" d="M10 17a.75.75 0 0 1-.75-.75V5.612L5.29 9.77a.75.75 0 0 1-1.08-1.04l5.25-5.5a.75.75 0 0 1 1.08 0l5.25 5.5a.75.75 0 1 1-1.08 1.04l-3.96-4.158V16.25A.75.75 0 0 1 10 17Z" clip-rule="evenodd"></path>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</footer>
+	}
+}

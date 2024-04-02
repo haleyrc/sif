@@ -1,0 +1,19 @@
+package pages
+
+import (
+	"github.com/haleyrc/sif/blog"
+	"github.com/haleyrc/sif/blog/internal/components"
+)
+
+templ Index(b blog.Blog) {
+	@components.Layout("Home Page", b.Name, b.Author, b.Since, b.Metadata.Manifest, b.Menu.Links) {
+		@components.Post(b.Posts.Latest)
+		if len(b.Posts.All) > 1 {
+			<hr class="my-4"/>
+			<section>
+				<h2 class="text-lg font-extralight pb-2">Recent posts</h2>
+				@components.PostList(b.Posts.All[1:])
+			</section>
+		}
+	}
+}

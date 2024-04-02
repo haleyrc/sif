@@ -1,0 +1,27 @@
+package standard
+
+templ Theme() {
+	@MarkdownStyles()
+}
+
+templ MarkdownStyles() {
+	<style type="text/tailwindcss">
+		@layer utilities {
+			.markdown p {
+				@apply mb-2
+			}
+
+			.markdown pre {
+				@apply rounded border p-2 text-sm overflow-x-scroll mb-2
+			}
+
+			.markdown h1 {
+				@apply text-lg font-semibold border-b-4 border-dotted mb-2
+			}
+
+			.markdown h2 {
+				@apply text-lg font-light border-b border-dashed my-2
+			}
+		}
+	</style>
+}

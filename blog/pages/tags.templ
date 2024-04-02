@@ -1,0 +1,22 @@
+package pages
+
+import (
+	"fmt"
+
+	"github.com/haleyrc/sif/blog"
+	"github.com/haleyrc/sif/blog/internal/components"
+)
+
+templ Tags(b blog.Blog) {
+	@components.Layout("Tags", b.Name, b.Author, b.Since, b.Metadata.Manifest, b.Menu.Links) {
+		<ul>
+			for _, tag := range keys(b.Posts.ByTag, false) {
+				<li>
+					<a class="hover:underline" href={ templ.URL("/tags/" + tag) }>
+						{ tag } ({ fmt.Sprintf("%d", len(b.Posts.ByTag[tag])) })
+					</a>
+				</li>
+			}
+		</ul>
+	}
+}

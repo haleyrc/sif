@@ -1,0 +1,32 @@
+package main
+
+import "github.com/haleyrc/sif"
+
+templ buttons() {
+	@section("Buttons") {
+		@button()
+		@disabledButton()
+	}
+}
+
+templ button() {
+	@sif.Button{
+		Disabled: false,
+		ID:       "btn",
+		Name:     "btn",
+		Type:     "button",
+		Text:     "Button",
+		Value:    "btn",
+	}.Render()
+}
+
+templ disabledButton() {
+	@sif.Button{
+		Disabled: true,
+		ID:       "disabledbtn",
+		Name:     "disabledbtn",
+		Type:     "button",
+		Text:     "Disabled Button",
+		Value:    "disabledbtn",
+	}.Render()
+}
