@@ -47,7 +47,7 @@ func MarkdownStyles() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<style type=\"text/tailwindcss\">\n\t\t@layer utilities {\n\t\t\t.markdown p {\n\t\t\t\t@apply mb-2\n\t\t\t}\n\n\t\t\t.markdown pre {\n\t\t\t\t@apply rounded border p-2 text-sm overflow-x-scroll mb-2\n\t\t\t}\n\n\t\t\t.markdown h1 {\n\t\t\t\t@apply text-lg font-semibold border-b-4 border-dotted mb-2\n\t\t\t}\n\n\t\t\t.markdown h2 {\n\t\t\t\t@apply text-lg font-light border-b border-dashed my-2\n\t\t\t}\n\n\t\t\t.markdown ol {\n\t\t\t\t@apply list-decimal list-inside\n\t\t\t}\n\n\t\t\t.markdown a {\n\t\t\t\t@apply hover:text-underline text-blue-500\n\t\t\t}\n\t\t}\n\t</style>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<style type=\"text/tailwindcss\">\n\t\t@layer utilities {\n\t\t\t.markdown p {\n\t\t\t\t@apply mb-2\n\t\t\t}\n\n\t\t\t.markdown pre {\n\t\t\t\t@apply rounded border p-2 text-sm overflow-x-scroll mb-2\n\t\t\t}\n\n\t\t\t.markdown h1 {\n\t\t\t\t@apply text-lg font-semibold border-b-4 border-dotted mb-2\n\t\t\t}\n\n\t\t\t.markdown h2 {\n\t\t\t\t@apply text-lg font-light border-b border-dashed my-2\n\t\t\t}\n\n\t\t\t.markdown ol {\n\t\t\t\t@apply list-decimal list-inside\n\t\t\t}\n\n\t\t\t.markdown a {\n\t\t\t\t@apply hover:underline text-blue-500\n\t\t\t}\n\t\t}\n\t</style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
