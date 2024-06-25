@@ -1,22 +1,13 @@
 package sif
 
-type Button struct {
-	Disabled bool
-	ID       string
-	Name     string
-	Text     string
-	Type     string
-	Value    string
-}
-
-templ (b Button) Render() {
+templ Button(id, name, typ, value string, disabled bool) {
 	<button
-		disabled?={ b.Disabled }
-		id={ b.ID }
-		name={ b.Name }
-		type={ b.Type }
-		value={ b.Value }
+		disabled?={ disabled }
+		id={ id }
+		name={ name }
+		type={ typ }
+		value={ value }
 	>
-		{ b.Text }
+		{ children... }
 	</button>
 }
