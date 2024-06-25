@@ -4,8 +4,11 @@ import "github.com/haleyrc/sif"
 
 templ gallery() {
 	@sif.Document("Gallery", "Gallery", nil, sif.Icons{}, "") {
-		<h1>Gallery</h1>
-		@buttons()
+		@sif.Head("Gallery", "Gallery", nil, sif.Icons{}, "")
+		@sif.Body() {
+			<h1>Gallery</h1>
+			@buttons()
+		}
 	}
 }
 
