@@ -3,8 +3,8 @@ package main
 import "github.com/haleyrc/sif"
 
 templ gallery() {
-	@sif.Document("Gallery", "Gallery", nil, sif.Icons{}, "") {
-		@sif.Head("Gallery", "Gallery", nil, sif.Icons{}, "")
+	@sif.Document() {
+		@sif.Head("Gallery", "Gallery")
 		@sif.Body() {
 			<h1>Gallery</h1>
 			@buttons()
