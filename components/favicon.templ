@@ -1,0 +1,6 @@
+package components
+
+// Recommended: 16x16 and 32x32 pixel variations; ideally PNG
+templ Favicon(href, typ string, size int) {
+	<link rel="icon" type={ typ } sizes={ fmt.Sprintf("%dx%d", size) } href={ href }/>
+}
