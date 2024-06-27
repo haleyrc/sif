@@ -1,5 +1,7 @@
 package components
 
+import "fmt"
+
 // Recommended: 180x180
 templ AppleTouchIcon(href string, size int) {
 	<link rel="apple-touch-icon" sizes={ fmt.Sprintf("%dx%d", size) } href={ href }/>
