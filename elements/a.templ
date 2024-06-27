@@ -1,0 +1,7 @@
+package elements
+
+templ A(class, href string) {
+	<a class={ class } href={ templ.URL(href) }>
+		{ children... }
+	</a>
+}
