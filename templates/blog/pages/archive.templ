@@ -1,0 +1,9 @@
+package pages
+
+import "github.com/haleyrc/sif/templates/blog/components"
+
+templ Archive(siteData SiteData, name string, index *components.PostIndexArgs) {
+	@Layout(siteData, PageData{Name: name}) {
+		@components.PostIndex(index)
+	}
+}

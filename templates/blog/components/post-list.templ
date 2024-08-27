@@ -1,0 +1,29 @@
+package components
+
+import (
+	"fmt"
+	"github.com/haleyrc/sif/elements"
+)
+
+type PostListArgs struct {
+	Posts []PostArgs
+}
+
+templ PostList(args *PostListArgs) {
+	@elements.Table() {
+		@elements.TBody() {
+			for _, p := range args.Posts {
+				@elements.TR() {
+					@elements.TD("pr-4") {
+						{ p.Timestamp.Format("2006-01-02") }:
+					}
+					@elements.TD("") {
+						@elements.A("", "hover:underline", fmt.Sprintf("/posts/"+p.Slug)) {
+							{ p.Title }
+						}
+					}
+				}
+			}
+		}
+	}
+}

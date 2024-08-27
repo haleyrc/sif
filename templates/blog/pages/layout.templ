@@ -1,0 +1,70 @@
+package pages
+
+import (
+	"fmt"
+	"strconv"
+	"time"
+
+	"github.com/haleyrc/sif/components"
+	"github.com/haleyrc/sif/components/icons"
+	"github.com/haleyrc/sif/elements"
+	blogcomponents "github.com/haleyrc/sif/templates/blog/components"
+	"github.com/haleyrc/sif/templates/blog/components/header"
+)
+
+templ Layout(siteData SiteData, pageData PageData) {
+	@components.Document() {
+		@components.Head(fmt.Sprintf("%s - %s", pageData.Name, siteData.Title), siteData.Description) {
+			@components.Manifest("manifest.webmanifest")
+		}
+		@elements.Body() {
+			@blogcomponents.Header(blogcomponents.HeaderArgs{}) {
+				@header.Brand(header.BrandArgs{Icon: icons.Home(6), Name: siteData.Title})
+				@elements.Nav("hidden sm:flex sm:items-center") {
+					for _, l := range siteData.Menu {
+						@elements.A("", "pl-2 hover:underline", l.Path) {
+							{ l.Label }
+						}
+					}
+					@elements.A("", "pl-2 hover:underline", "rss.xml") {
+						@icons.RSS(4)
+					}
+				}
+				@elements.A("", "flex items-center sm:hidden", "#bottom-nav") {
+					@icons.ThreeBars(6)
+				}
+			}
+			@elements.Main("py-6") {
+				@elements.Div("px-4 sm:w-3/4 mx-auto") {
+					{ children... }
+				}
+			}
+			@elements.Footer("border-t pb-2 sm:py-2") {
+				@elements.Nav("flex flex-col pb-2 sm:hidden") {
+					@elements.A("", "border-b py-2 hover:bg-gray-100 text-center", "/") {
+						home
+					}
+					for _, l := range siteData.Menu {
+						@elements.A("", "border-b py-2 hover:bg-gray-100 text-center", fmt.Sprintf(l.Path)) {
+							{ l.Label }
+						}
+					}
+					@elements.A("bottom-nav", "border-b py-2 hover:bg-gray-100 text-center", "#") {
+						top
+					}
+				}
+				@elements.Div("px-4 sm:w-3/4 mx-auto flex flex-col items-center sm:flex-row justify-between") {
+					@elements.Div("font-extralight text-gray-500") {
+						© { strconv.Itoa(siteData.CopyrightStartYear) }-{ strconv.Itoa(time.Now().Year()) } { siteData.Author }
+					}
+					@elements.Div("hidden sm:block") {
+						@elements.A("", "inline-flex items-center gap-1 hover:underline", "#") {
+							Back to top
+							@icons.ArrowUp(4)
+						}
+					}
+				}
+			}
+		}
+	}
+}

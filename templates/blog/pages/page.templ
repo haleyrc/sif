@@ -1,0 +1,9 @@
+package pages
+
+import "github.com/haleyrc/sif/templates/blog/components"
+
+templ Page(siteData SiteData, args *components.PageArgs) {
+	@Layout(siteData, PageData{Name: args.Slug}) {
+		@components.Page(args)
+	}
+}

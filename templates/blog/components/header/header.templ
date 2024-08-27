@@ -1,0 +1,15 @@
+package header
+
+import "github.com/haleyrc/sif/elements"
+
+type BrandArgs struct {
+	Icon templ.Component
+	Name string
+}
+
+templ Brand(args BrandArgs) {
+	@elements.A("", "inline-flex items-center gap-2 text-xl font-bold", "/") {
+		@args.Icon
+		{ args.Name }
+	}
+}

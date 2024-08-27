@@ -2,6 +2,6 @@ package components
 
 templ Markdown(content string) {
 	<div class="markdown">
-		@templ.Raw(content)
+		@templ.Raw(string(content))
 	</div>
 }

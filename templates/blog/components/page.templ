@@ -1,0 +1,10 @@
+package components
+
+type PageArgs struct {
+	Content []byte
+	Slug    string
+}
+
+templ Page(args *PageArgs) {
+	@templ.Raw(string(args.Content))
+}

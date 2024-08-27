@@ -1,0 +1,13 @@
+package components
+
+import "github.com/haleyrc/sif/elements"
+
+type HeaderArgs struct{}
+
+templ Header(args HeaderArgs) {
+	@elements.Header("border-b py-2") {
+		@elements.Div("px-4 sm:w-3/4 mx-auto flex justify-between align-center") {
+			{ children... }
+		}
+	}
+}

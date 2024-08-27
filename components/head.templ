@@ -9,6 +9,33 @@ templ Head(title, description string) {
 		<meta name="description" content={ description }/>
 		<title>{ title }</title>
 		@elements.Script("https://cdn.tailwindcss.com")
+		<style type="text/tailwindcss">
+	@layer utilities {
+		.markdown p {
+			@apply mb-2
+		}
+
+		.markdown pre {
+			@apply rounded border p-2 text-sm overflow-x-scroll mb-2
+		}
+
+		.markdown h1 {
+			@apply text-lg font-semibold border-b-4 border-dotted mb-2
+		}
+
+		.markdown h2 {
+			@apply text-lg font-light border-b border-dashed my-2
+		}
+
+		.markdown ol {
+			@apply list-decimal list-inside
+		}
+
+		.markdown a {
+			@apply hover:underline text-blue-500
+		}
+	}
+</style>
 		{ children... }
 	}
 }
