@@ -1,9 +1,0 @@
-package pages
-
-import "github.com/haleyrc/sif/templates/blog/components"
-
-templ Post(siteData SiteData, args *components.PostArgs) {
-	@Layout(siteData, PageData{Name: args.Title}) {
-		@components.Post(args)
-	}
-}
