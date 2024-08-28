@@ -1,4 +1,4 @@
-all: cleanall fmt generate sourcemaps
+all: cleanall fmt sourcemaps
 
 .PHONY: clean cleanall fmt generate sourcemaps
 
@@ -15,8 +15,8 @@ fmt:
 	templ fmt .
 
 generate:
-	templ generate
+	templ generate -include-version=false
 
 sourcemaps:
-	templ generate --source-map-visualisations
+	templ generate --source-map-visualisations --include-version=false
 
